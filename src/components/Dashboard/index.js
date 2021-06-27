@@ -1,13 +1,16 @@
 import React from "react"
 import {observer} from "mobx-react-lite"
 
-import classes from "./index.module.css"
+// import classes from "./index.module.css"
+import useStyles from "./styles"
 
 import moneyStore from "../../store";
 
 const Dashboard = () => {
   const {exchangeRate} = moneyStore
    
+  const classes = useStyles()
+
   return (
     <div className={classes.wrapper}>
      {

@@ -1,13 +1,16 @@
 import React from "react";
+import {ThemeProvider} from "@material-ui/core";
 import Header from "../Header"
 import Dashboard from "../Dashboard";
 
+import baseTheme from "../../theme"
+
 const MainApp = () => {  
   return(
-    <div>
+    <ThemeProvider theme={baseTheme}>
       <Header />
       <Dashboard />
-    </div>
+    </ThemeProvider>
   )
 };
 
