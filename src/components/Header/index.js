@@ -1,33 +1,43 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { Button, Input, Typography } from "@material-ui/core";
 
-import classes from "./index.module.css"
+import useStyles from "./styles";
+
 import moneyStore from "../../store";
 
 const Header = () => {
   const [amount, setAmount] = useState(400);
   const [inHryvna, setInHryvna] = useState();
-  const {transformToHryvna} = moneyStore;
 
+  const classes = useStyles();
+
+  const { transformToHryvna, afterTaxes } = moneyStore;
   const submit = (event) => {
     event.preventDefault();
-    setInHryvna(transformToHryvna(amount))
-  }
+    setInHryvna(transformToHryvna(amount));
+  };
 
   return (
     <header className={classes.header}>
       <div>
-        <h1>Sallary app</h1>
-        <p>Currencys list</p>
-        {
-          inHryvna && inHryvna
-        }
+        <Typography variant="h2">Sallary app</Typography>
+        <Typography variant="h5">Without taxes {inHryvna}</Typography>
+        <Typography variant="h5">After taxes {afterTaxes}</Typography>
       </div>
       <div className={classes.actionsWrapper}>
-        <input  type="number" placeholder="Sallary" className={classes.input} value={amount} onChange={(event)=>setAmount(event.target.value)} />
-        <button onClick={submit} className={classes.button}>Count</button>
+        <Input
+          type="number"
+          placeholder="Sallary"
+          className={classes.input}
+          value={amount}
+          onChange={(event) => setAmount(event.target.value)}
+        />
+        <Button variant="contained" onClick={submit} className={classes.button}>
+          Count
+        </Button>
       </div>
     </header>
-  )
+  );
 };
 
 export default Header;

@@ -1,25 +1,24 @@
-import {makeStyles} from "@material-ui/core"
+import { makeStyles } from "@material-ui/core";
 
-
-const useStyles = makeStyles(theme =>({
-  wrapper:{
+const useStyles = makeStyles((theme) => ({
+  wrapper: {
     display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)"
+    gridTemplateColumns: "repeat(2, 1fr)",
   },
-  exchangeCard:{
+  exchangeCard: {
     border: `1px solid ${theme.palette.primary.main}`,
-    margin: "10px 30px",
-    padding: "20px",
+    margin: "2em",
+    padding: "1.5em",
   },
-  currencys:{
-    fontWeight: '500',
-    display: 'flex',
-    justifyContentt:"space-between"
-  },
-  rates:{
+  currencys: {
+    fontWeight: 600,
     display: "flex",
-    justifyContentt: "space-between"
-  }
+    justifyContent: "space-between",
+  },
+  rates: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
 }));
 
 export default useStyles;
