@@ -7,9 +7,26 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    "@media(max-width: 500px)": {
+      "& h2": {
+        display: "none",
+      },
+      padding: "10px 20px",
+      flexDirection: "column",
+    },
+  },
+  info: {
+    width: "100%",
+    minHeight: 85,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
   },
   actionsWrapper: {
     width: "50%",
+    "@media(max-width: 500px)": {
+      width: "100%",
+    },
   },
   button: {
     width: "100px",

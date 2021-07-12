@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header className={classes.header}>
-      <div>
+      <div className={classes.info}>
         <Typography variant="h2">Sallary app</Typography>
         <Typography variant="h5">Without taxes {inHryvna}</Typography>
         <Typography variant="h5">After taxes {afterTaxes}</Typography>
