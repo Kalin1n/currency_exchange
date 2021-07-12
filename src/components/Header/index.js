@@ -6,7 +6,7 @@ import useStyles from "./styles";
 import moneyStore from "../../store";
 
 const Header = () => {
-  const [amount, setAmount] = useState(400);
+  const [amount, setAmount] = useState();
   const [inHryvna, setInHryvna] = useState();
 
   const classes = useStyles();
