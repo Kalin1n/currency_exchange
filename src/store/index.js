@@ -3,11 +3,13 @@ import {
   runInAction,
   onBecomeObserved,
   observable,
+  action,
 } from "mobx";
 
 class MoneyStore {
   exchangeRate = null;
   threeMonthAmount = null;
+  threeMonthsCheck = false;
   hryvnaAmount = 0;
 
   constructor() {
@@ -15,6 +17,8 @@ class MoneyStore {
       exchangeRate: observable,
       hryvnaAmount: observable,
       threeMonthAmount: observable,
+      threeMonthsCheck: observable,
+      setCheck: action,
     });
     onBecomeObserved(this, "exchangeRate", () => this.getCurrencys());
   }
@@ -30,6 +34,12 @@ class MoneyStore {
     runInAction(() => {
       this.exchangeRate = response;
     });
+  };
+
+  setCheck = () => {
+    console.log(this.threeMonthsCheck);
+    this.threeMonthsCheck = !this.threeMonthsCheck;
+    console.log(this.threeMonthsCheck);
   };
 
   transformToHryvna = (amount) => {
@@ -48,6 +58,16 @@ class MoneyStore {
     if (this.hryvnaAmount) {
       const en = (this.hryvnaAmount / 100) * 5;
       const afterEsv = this.hryvnaAmount - 1320 - en;
+      return afterEsv;
+    } else {
+      return null;
+    }
+  }
+
+  get threeMonthAfterTaxes() {
+    if (this.threeMonthAmount) {
+      const en = (this.threeMonthAmount / 100) * 5;
+      const afterEsv = this.threeMonthAmount - 3960 - en;
       return afterEsv;
     } else {
       return null;

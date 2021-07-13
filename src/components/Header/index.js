@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { observer } from "mobx-react-lite";
 import { autorun } from "mobx";
+
 import {
   Button,
   Input,
@@ -13,17 +15,26 @@ import useStyles from "./styles";
 import moneyStore from "../../store";
 
 const Header = () => {
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState(undefined);
   const [inHryvna, setInHryvna] = useState();
-  const [checked, setChecked] = useState(false);
+  // const [checked, setChecked] = useState(false);
 
   const classes = useStyles();
 
-  const { transformToHryvna, afterTaxes, countThreeMonth, threeMonthAmount } =
-    moneyStore;
+  const {
+    transformToHryvna,
+    afterTaxes,
+    countThreeMonth,
+    threeMonthAmount,
+    threeMonthsCheck,
+    threeMonthAfterTaxes,
+    setCheck,
+  } = moneyStore;
 
   const handleCheck = () => {
-    setChecked(!checked);
+    console.log("handle check");
+    setCheck();
+    // setChecked(!checked);
   };
 
   const submit = (event) => {
@@ -31,7 +42,8 @@ const Header = () => {
     setInHryvna(transformToHryvna(amount));
   };
 
-  autorun((checked) => {
+  autorun((threeMonthsCheck) => {
+    console.log("Autorun : ", threeMonthsCheck);
     countThreeMonth();
   });
 
@@ -58,18 +70,26 @@ const Header = () => {
           control={
             <Checkbox
               color="primary"
-              checked={checked}
+              checked={threeMonthsCheck}
               onChange={handleCheck}
               label="For 3 months?"
             />
           }
           label="For 3 months "
         />
-
-        {checked && threeMonthAmount}
       </div>
+      {threeMonthsCheck && (
+        <div>
+          <Typography className={classes.infoRow}>
+            Three month amount : <b>{threeMonthAmount}</b>
+          </Typography>
+          <Typography className={classes.infoRow}>
+            Three month amount after taxes : <b>{threeMonthAfterTaxes}</b>
+          </Typography>
+        </div>
+      )}
     </header>
   );
 };
 
-export default Header;
+export default observer(Header);

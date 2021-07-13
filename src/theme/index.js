@@ -8,6 +8,7 @@ const baseTheme = createMuiTheme({
       secondary: "#155d27",
       first: "#1a7431",
       second: "#92e6a7",
+      white: "#fff",
     },
   },
 });
