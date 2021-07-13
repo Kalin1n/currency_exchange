@@ -37,6 +37,7 @@ const Header = () => {
 
   return (
     <header className={classes.header}>
+      <h1>Test of auto build</h1>
       <div className={classes.info}>
         <Typography variant="h5">Without taxes {inHryvna}</Typography>
         <Typography variant="h5">After taxes {afterTaxes}</Typography>
