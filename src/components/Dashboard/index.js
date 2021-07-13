@@ -1,7 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-// import classes from "./index.module.css"
 import useStyles from "./styles";
 
 import moneyStore from "../../store";

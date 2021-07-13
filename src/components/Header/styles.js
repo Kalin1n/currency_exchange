@@ -4,15 +4,13 @@ const useStyles = makeStyles((theme) => ({
   header: {
     width: "100%",
     padding: "30px",
-    display: "flex",
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
     justifyContent: "space-between",
     alignItems: "center",
     "@media(max-width: 500px)": {
-      "& h2": {
-        display: "none",
-      },
+      gridTemplateColumns: "auto",
       padding: "10px 20px",
-      flexDirection: "column",
     },
   },
   info: {
@@ -25,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
   actionsWrapper: {
     width: "50%",
     "@media(max-width: 500px)": {
+      marginTop: 20,
       width: "100%",
     },
   },
@@ -38,6 +37,10 @@ const useStyles = makeStyles((theme) => ({
     height: "30px",
     width: "50%",
     padding: "5px",
+  },
+  checkboxWrapper: {
+    marginTop: 20,
+    width: "100%",
   },
 }));
 

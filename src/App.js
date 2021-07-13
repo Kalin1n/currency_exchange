@@ -1,9 +1,7 @@
-import MainApp from "./components/App"
+import MainApp from "./components/App";
 
 function App() {
-  return (
-    <MainApp />
-  );
+  return <MainApp />;
 }
 
 export default App;
