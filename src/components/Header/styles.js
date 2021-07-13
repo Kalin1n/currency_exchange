@@ -13,6 +13,19 @@ const useStyles = makeStyles((theme) => ({
       padding: "10px 20px",
     },
   },
+  blackHeader: {
+    width: "100%",
+    backgroundColor: "lightgrey",
+    padding: "30px",
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    justifyContent: "space-between",
+    alignItems: "center",
+    "@media(max-width: 500px)": {
+      gridTemplateColumns: "auto",
+      padding: "10px 20px",
+    },
+  },
   info: {
     width: "100%",
     minHeight: 85,

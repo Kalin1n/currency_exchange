@@ -43,12 +43,17 @@ const Header = () => {
   };
 
   autorun((threeMonthsCheck) => {
-    console.log("Autorun : ", threeMonthsCheck);
+    // console.log("Autorun : ", threeMonthsCheck);
     countThreeMonth();
   });
 
+  let currentTime = new Date().getHours();
+
+  const black = currentTime < 10 || currentTime > 19;
+  console.log("currentTime : ", black);
+
   return (
-    <header className={classes.header}>
+    <header className={black ? classes.blackHeader : classes.header}>
       <div className={classes.info}>
         <Typography variant="h5">Without taxes {inHryvna}</Typography>
         <Typography variant="h5">After taxes {afterTaxes}</Typography>
@@ -75,6 +80,7 @@ const Header = () => {
               label="For 3 months?"
             />
           }
+          the
           label="For 3 months "
         />
       </div>
