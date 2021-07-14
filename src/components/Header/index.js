@@ -1,5 +1,5 @@
 import React from "react";
-
+import classNames from "classnames";
 import useStyles from "./styles";
 
 import ThreeMonth from "../ThreeMonth";
@@ -10,10 +10,12 @@ const Header = () => {
 
   let currentTime = new Date().getHours();
 
-  const black = currentTime < 10 || currentTime > 19;
+  const black = currentTime < 10 || currentTime > 18;
 
   return (
-    <header className={black ? classes.blackHeader : classes.header}>
+    <header
+      className={classNames(classes.header, black && classes.blackHeader)}
+    >
       <MainActions />
       <ThreeMonth />
     </header>

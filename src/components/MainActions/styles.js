@@ -11,20 +11,20 @@ const useStyles = makeStyles((theme) => ({
   actionsWrapper: {
     width: "50%",
     "@media(max-width: 500px)": {
-      marginTop: 20,
+      marginTop: theme.spacing(4),
       width: "100%",
     },
   },
   button: {
     width: "100px",
-    margin: "0px 20px",
+    margin: `0px ${theme.spacing(4)}`,
     background: theme.palette.primary.secondary,
     color: "#fff",
   },
   input: {
-    height: "30px",
+    height: theme.spacing(5),
     width: "50%",
-    padding: "5px",
+    padding: theme.spacing,
   },
 }));
 

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   exchangeCard: {
     border: `1px solid ${theme.palette.primary.main}`,
     borderRadius: theme.borderRadius,
-    margin: "2em",
+    margin: "1em",
     padding: "1.5em",
   },
   currencys: {

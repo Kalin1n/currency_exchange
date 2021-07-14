@@ -11,6 +11,9 @@ const baseTheme = createMuiTheme({
       white: "#fff",
     },
   },
+  dimens: {
+    spacing: 5,
+  },
 });
 
 export default baseTheme;
