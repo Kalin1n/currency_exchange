@@ -7,6 +7,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around",
+    "& svg": {
+      fontSize: "1em",
+      width: theme.spacing,
+    },
   },
   actionsWrapper: {
     width: "50%",
