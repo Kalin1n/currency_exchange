@@ -3,22 +3,17 @@ import {
   runInAction,
   onBecomeObserved,
   observable,
-  action,
 } from "mobx";
 
 class MoneyStore {
   exchangeRate = null;
   threeMonthAmount = null;
-  threeMonthsCheck = false;
   hryvnaAmount = 0;
 
   constructor() {
     makeObservable(this, {
       exchangeRate: observable,
       hryvnaAmount: observable,
-      threeMonthAmount: observable,
-      threeMonthsCheck: observable,
-      setCheck: action,
     });
     onBecomeObserved(this, "exchangeRate", () => this.getCurrencys());
   }
@@ -31,15 +26,19 @@ class MoneyStore {
     ).json();
     // We support Ukraine, it means no russians
     response = response.filter(({ ccy }) => ccy !== "RUR");
+
     runInAction(() => {
       this.exchangeRate = response;
     });
   };
 
-  setCheck = () => {
-    console.log(this.threeMonthsCheck);
-    this.threeMonthsCheck = !this.threeMonthsCheck;
-    console.log(this.threeMonthsCheck);
+  getHistory = async () => {
+    let response = await (
+      await fetch(
+        "https://api.privatbank.ua/p24api/exchange_rates?json&date=01.12.2019"
+      )
+    ).json();
+    console.log("Response : ", response);
   };
 
   transformToHryvna = (amount) => {
@@ -49,10 +48,9 @@ class MoneyStore {
     return amount * this.exchangeRate[0].buy;
   };
 
-  countThreeMonth = () => {
-    const threeMonthAmount = this.hryvnaAmount * 3;
-    this.threeMonthAmount = threeMonthAmount;
-  };
+  get countThreeMonth() {
+    return this.hryvnaAmount * 3;
+  }
 
   get afterTaxes() {
     if (this.hryvnaAmount) {
@@ -65,9 +63,9 @@ class MoneyStore {
   }
 
   get threeMonthAfterTaxes() {
-    if (this.threeMonthAmount) {
-      const en = (this.threeMonthAmount / 100) * 5;
-      const afterEsv = this.threeMonthAmount - 3960 - en;
+    if (this.countThreeMonth) {
+      const en = (this.countThreeMonth / 100) * 5;
+      const afterEsv = this.countThreeMonth - 3960 - en;
       return afterEsv;
     } else {
       return null;

@@ -6,7 +6,9 @@ import useStyles from "./styles";
 import moneyStore from "../../store";
 
 const Dashboard = () => {
-  const { exchangeRate } = moneyStore;
+  const { exchangeRate, getHistory } = moneyStore;
+
+  getHistory();
 
   const classes = useStyles();
 
