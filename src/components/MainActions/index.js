@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Observer } from "mobx-react-lite";
 import { Button, Input, Typography } from "@material-ui/core";
 
-import { Salary, Money } from "../../theme/Icons";
+import { Cash } from "../../theme/Icons";
 
 import useStyles from "./styles";
 
@@ -26,14 +26,9 @@ const MainActions = () => {
         <>
           <div className={classes.info}>
             <Typography variant="h5">
-              {" "}
-              <Salary />
-              Without taxes {inHryvna}
+              <Cash /> Without taxes {inHryvna}
             </Typography>
-            <Typography variant="h5">
-              <Money />
-              After taxes {afterTaxes}
-            </Typography>
+            <Typography variant="h5">After taxes {afterTaxes}</Typography>
           </div>
           <div className={classes.actionsWrapper}>
             <Input
