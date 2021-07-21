@@ -7,13 +7,20 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around",
+  },
+  title: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
     "& svg": {
       fontSize: "1em",
       width: theme.spacing,
+      stroke: theme.palette.primary.main,
+      marginRight: theme.spacing(2),
     },
   },
   actionsWrapper: {
-    width: "50%",
+    // width: "100%",
     "@media(max-width: 500px)": {
       marginTop: theme.spacing(4),
       width: "100%",
@@ -29,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(5),
     width: "50%",
     padding: theme.spacing,
+    marginRight: theme.spacing(4),
   },
 }));
 

@@ -1,3 +1,6 @@
 export { default as Cash } from './Cash'
+export { default as LinkedIn } from './LinkedIn'
 export { default as Money } from './Money'
+export { default as Polygon1 } from './Polygon1'
+export { default as Rectangle3 } from './Rectangle3'
 export { default as Salary } from './Salary'

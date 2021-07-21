@@ -1,18 +1,23 @@
 import React from "react";
-import {ThemeProvider, CssBaseline} from "@material-ui/core";
-import Header from "../Header"
-import Dashboard from "../Dashboard";
+import { ThemeProvider, CssBaseline } from "@material-ui/core";
 
-import baseTheme from "../../theme"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-const MainApp = () => {  
-  return(
+import SallaryDashboard from "./Pages/Home";
+
+import baseTheme from "theme";
+
+const MainApp = () => {
+  return (
     <ThemeProvider theme={baseTheme}>
       <CssBaseline />
-      <Header />
-      <Dashboard />
+      <Router>
+        <Switch>
+          <Route path="/" exact component={SallaryDashboard} />
+        </Switch>
+      </Router>
     </ThemeProvider>
-  )
+  );
 };
 
 export default MainApp;
