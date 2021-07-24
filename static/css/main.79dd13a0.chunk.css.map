@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/css/toastifyOverride.css"],"names":[],"mappings":"AAAA,iBACE,wBACF","file":"main.79dd13a0.chunk.css","sourcesContent":[".Toastify__toast {\r\n  background-color: #54436b;\r\n}\r\n"]}
