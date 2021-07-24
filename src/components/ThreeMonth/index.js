@@ -23,7 +23,6 @@ const ThreeMonth = () => {
         <FormControlLabel
           control={
             <Checkbox
-              color="primary"
               checked={checked}
               onChange={handleCheck}
               label="For 3 months?"

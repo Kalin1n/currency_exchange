@@ -9,7 +9,7 @@ const SallaryDashboard = () => {
     <>
       <Header />
       <Dashboard />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

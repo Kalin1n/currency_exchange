@@ -5,6 +5,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
     width: "100%",
   },
+  checkbox: {
+    "&": {
+      color: theme.palette.primary.purple,
+    },
+  },
   infoRow: {
     padding: "10px 05px",
     background: theme.palette.primary.second,

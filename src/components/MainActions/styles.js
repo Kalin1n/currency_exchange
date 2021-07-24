@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
     "& svg": {
       fontSize: "1em",
       width: theme.spacing,
-      stroke: theme.palette.primary.main,
+      fill: theme.palette.primary.teal,
+      stroke: theme.palette.primary.purple,
       marginRight: theme.spacing(2),
     },
   },
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     width: "100px",
     margin: `0px ${theme.spacing(4)}`,
-    background: theme.palette.primary.secondary,
+    background: theme.palette.primary.purple,
     color: "#fff",
   },
   input: {

@@ -42,6 +42,9 @@ class MoneyStore {
   };
 
   transformToHryvna = (amount) => {
+    if (!amount) {
+      return;
+    }
     runInAction(() => {
       this.hryvnaAmount = amount * this.exchangeRate[0].buy;
     });

@@ -8,13 +8,14 @@ const useStyles = makeStyles((theme) => ({
     gridTemplateColumns: "repeat(2, 1fr)",
     justifyContent: "space-between",
     alignItems: "center",
+    backgroundColor: theme.palette.primary.mint,
     "@media(max-width: 500px)": {
       gridTemplateColumns: "auto",
       padding: `${theme.spacing(2)} ${theme.spacing(4)}`,
     },
   },
   blackHeader: {
-    backgroundColor: "lightgrey",
+    backgroundColor: theme.palette.primary.teal,
   },
 }));
 
