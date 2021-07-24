@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.borderRadius,
     margin: theme.spacing(1),
     padding: "1.5em",
+    boxShadow: `5px 5px 2px ${theme.palette.primary.purple}`,
+    "&:hover": {
+      boxShadow: `5px 5px 2px ${theme.palette.primary.white}`,
+    },
   },
   currencys: {
     fontWeight: 600,

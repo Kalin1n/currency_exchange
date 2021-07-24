@@ -1,7 +1,10 @@
 import React from "react";
 import { ThemeProvider, CssBaseline } from "@material-ui/core";
-
+import { ToastContainer, Slide } from "react-toastify";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import "react-toastify/dist/ReactToastify.css";
+import "css/toastifyOverride.css";
 
 import routes from "./Pages";
 
@@ -17,6 +20,7 @@ const MainApp = () => {
   return (
     <ThemeProvider theme={baseTheme}>
       <CssBaseline />
+      <ToastContainer autoClose={10000} transition={Slide} />
       <Router>
         <Switch>
           {routes.map(({ path, exact, component }, index) => (

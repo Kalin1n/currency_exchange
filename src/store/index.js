@@ -4,6 +4,7 @@ import {
   onBecomeObserved,
   observable,
 } from "mobx";
+import { toast } from "react-toastify";
 
 class MoneyStore {
   exchangeRate = null;
@@ -48,6 +49,7 @@ class MoneyStore {
     runInAction(() => {
       this.hryvnaAmount = amount * this.exchangeRate[0].buy;
     });
+    toast.success("Transformed");
     return amount * this.exchangeRate[0].buy;
   };
 
