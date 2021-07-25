@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     display: "grid",
+    padding: `${theme.spacing(2)}px`,
     gridTemplateColumns: "repeat(2,  1fr)",
     background: theme.palette.primary.second,
     "@media(max-width: 500px)": {
@@ -10,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   exchangeCard: {
-    border: `1px solid ${theme.palette.primary.main}`,
+    border: `${theme.spacing(1)}px solid ${theme.palette.primary.main}`,
     borderRadius: theme.borderRadius,
     margin: theme.spacing(1),
     padding: "1.5em",

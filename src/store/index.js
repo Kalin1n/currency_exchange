@@ -6,6 +6,16 @@ import {
 } from "mobx";
 import { toast } from "react-toastify";
 
+const messageMap = new Map([
+  ["200", "Все мы были трейни"],
+  ["400", "Пиши Марине"],
+  ["600", "Нормально все делаешь"],
+  ["800", "На ход ноги"],
+  ["1000", "Ты чё там? Шутник?"],
+]);
+
+const storageKey = "@Sallary_calc_amount";
+
 class MoneyStore {
   exchangeRate = null;
   threeMonthAmount = null;
@@ -25,6 +35,7 @@ class MoneyStore {
         "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5"
       )
     ).json();
+
     // We support Ukraine, it means no russians
     response = response.filter(({ ccy }) => ccy !== "RUR");
 
@@ -46,10 +57,22 @@ class MoneyStore {
     if (!amount) {
       return;
     }
+
+    const prevAmount = localStorage.getItem(storageKey);
+
+    if (prevAmount && prevAmount > amount) {
+      toast.success(
+        messageMap.get(amount) ? messageMap.get(amount) : "Мои поздравления"
+      );
+      localStorage.setItem(storageKey, amount);
+    } else if (!prevAmount) {
+      localStorage.setItem(storageKey, amount);
+    }
+
     runInAction(() => {
       this.hryvnaAmount = amount * this.exchangeRate[0].buy;
     });
-    toast.success("Transformed");
+
     return amount * this.exchangeRate[0].buy;
   };
 

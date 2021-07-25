@@ -3,7 +3,7 @@ import * as React from "react";
 function SvgCash(props) {
   return (
     <svg
-      height={512}
+      // height={512}
       viewBox="0 0 64 64"
       width={512}
       xmlns="http://www.w3.org/2000/svg"

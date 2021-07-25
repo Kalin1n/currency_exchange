@@ -16,9 +16,9 @@ const baseTheme = createMuiTheme({
       mint: "#ACFFAD",
     },
   },
-  dimens: {
-    spacing: 5,
-  },
+  // dimens: {
+  //   spacing: 50,
+  // },
 });
 
 export default baseTheme;

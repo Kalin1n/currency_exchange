@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core";
 import React from "react";
 
 import { LinkedIn } from "../../theme/Icons";
@@ -9,8 +10,13 @@ const Footer = () => {
 
   return (
     <footer className={classes.footer}>
-      <p>Build by Kalinin Ivan</p>
-      <div>
+      <Typography className={classes.text}>
+        Build by Kalinin Ivan {new Date().getFullYear()}
+      </Typography>
+      <div className={classes.links}>
+        <LinkedIn />
+        {/* Add socials */}
+        <LinkedIn />
         <LinkedIn />
       </div>
     </footer>
