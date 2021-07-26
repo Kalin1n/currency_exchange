@@ -36,7 +36,7 @@ const MainApp = () => {
             />
           ))}
 
-          <Redirect from="/currency_exchange" to="/" />
+          {/* <Redirect from="/currency_exchange" to="/" /> */}
         </Switch>
         <Footer />
       </Router>
